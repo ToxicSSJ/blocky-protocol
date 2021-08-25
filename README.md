@@ -1,3 +1,3 @@
-# 🦆 Duckvoice
+# Chatty
 
-Repositorio oficial del proyecto Duckvoice, actualmente se encuentra en desarrollo.
+Repositorio oficial del proyecto Chatty
