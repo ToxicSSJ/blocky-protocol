@@ -1,4 +1,5 @@
 from log.logger import init_logger
+from server.server import run_server
 
 import os
 import glob
@@ -10,6 +11,7 @@ colorama.init()
 logger = init_logger("", True)
 
 def _main():
+
     logger.info('Starting the basic setup procedure...')
 
     '''
@@ -18,6 +20,20 @@ def _main():
     '''
     config = configparser.ConfigParser()
     config.read(glob.glob('../config/config.ini'))
+
+    '''
+    Intialization process
+    '''
+    dirname = os.path.dirname(__file__)
+    folder = os.path.join(dirname, '../files')
+
+    if not os.path.isdir(folder):
+        os.mkdir(folder)
+
+    '''
+    Start the http server
+    '''
+    run_server(config['bottle']['hostname'], config['bottle']['port'], config)
 
     '''
     Freeze main thread
